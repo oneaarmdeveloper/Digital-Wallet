@@ -37,6 +37,13 @@ It allows users to view balances, send/receive money, exchange currencies, and t
 
 ---
 
+## Web Link to the project
+
+https://oneaarmdeveloper.github.io/Digital-Wallet/
+
+
+
+
 ## 📦 Installation & Usage
 
 1. Clone the repository:
