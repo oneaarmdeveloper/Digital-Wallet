@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Digital Wallet</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <!--body of the App, what users will see-->
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Digital Wallet</h1>
+                <p>Your secure multi-currency Digital wallet</p>
+            </div>
+
+            <div class="wallet-card">
+                <div class="balance-section">
+                    <div class="total-balance" id="totalBalance">$12,800</div>
+                    <div class="balance-label">Total Balance</div>
+                </div>
+
+                <div class="actions">
+                    <button class="action-btn" onclick="openModal('send')">Send Money</button>
+                    <button class="action-btn" onclick="openModal('receive')">Receive</button>
+                    <button class="action-btn" onclick="openModal('exchange')">Exchange</button>
+                </div>
+
+                <div class="currencies-grid" id="currenciesGrid">
+                    <!--inserting dynamically created currenc card-->
+                </div>
+            </div>
+
+            <div class="wallet-card">
+                <div class="transaction-section">
+                    <h2 class="section-title">Recent Transaction</h2>
+                    <div id="transactionsList">
+                        <!--inserting Transactions dynamically here-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal for sending money-->
+        <div id="sendModal" class="modal">
+            <div class="modal-content">
+                <h2>Send Money</h2>
+                <form id="sendForm">
+                    <div class="form-group">
+                        <label for="sendCurreny">Currency</label>
+                        <select id="sendCurrency" required>
+                            <option value="">Select Currency</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sendAmount">Amount</label>
+                        <input type="number" id="sendAmount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sendTo">Send To</label>
+                        <input type="text" id="sendTo" placeholder="Email or Wallet address">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" onclick="closeModal('send')">Cancel</button>
+                        <button type="submit" class="action-btn">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Receive Modal-->
+        <div id="receiveModal" class="modal">
+            <div class="modal-content">
+                <h2>Receive Money</h2>
+                <div class="form-group">
+                    <label for="receiveCurrency">Currency</label>
+                    <select id="receiveCurrency">
+                        <option value="">Select Currency</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label>Your Wallet Address</label>
+                <input type="text" id="walletAddress" readonly value="0x1234567890abcdef1234567890abcdef12345678">
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-cancel" onclick="closeModal('receive')">close</button>
+                <button type="button" class="action-btn" onclick="copyAddress()">Copy Address</button>
+            </div>
+        </div>
+
+
+        <!--exchange Modal-->
+        <div id="exchangeModal" class="modal">
+            <div class="modal-content">
+                <h2>Exchange Currency</h2>
+                <form id="exchangeForm">
+                    <div class="form-group">
+                        <label for = "fromCurrency">From</label>
+                        <select id="fromCurrency" required>
+                            <option values="">Select Currency</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                         <label for="exchangeAmount">Amount</label>
+                         <input type="number" id="exchangeAmount" step="0.01" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" onclick="closeModal('exchange')">Cancel</button>
+                        <button type="submit" class="action-btn">Exchange</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
+     
+
+         
